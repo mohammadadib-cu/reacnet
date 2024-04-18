@@ -4,6 +4,15 @@ class Tank(ElementBase):
     def __init__(self, soot_gas, name = ""):
         super().__init__(soot_gas, name);
     
+
+    @property
+    def mdot(self):
+        return self._mdot;
+
+    @mdot.setter
+    def mdot(self, val: float):
+        self._mdot = val;
+
     @property
     def X(self):
         return self._X;
@@ -55,3 +64,7 @@ class Tank(ElementBase):
         self._X = soot_gas.X
         self._h_mol_array = self.soot_gas.h_mol_array;
         self._h_mass_total = self.soot_gas.h_mass_total;
+
+    def run(self):
+        self._start_message();
+        self._success_message();
