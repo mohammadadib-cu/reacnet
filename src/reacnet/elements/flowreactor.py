@@ -24,25 +24,6 @@ class FlowReactor(ElementBase):
         self._P = self.reactor.P;
         self._soot = self.reactor.soot_array;
         self._mdot = self.reactor.mdot;
-    # @property
-    # def X(self):
-    #     return self.reactor.X;
-
-    # @property
-    # def Y(self):
-    #     return self.reactor.Y;
-    
-    # @property
-    # def T(self):
-    #     return self.reactor.T;
-
-    # @property
-    # def P(self):
-    #     return self.reactor.P;
-    
-    # @property
-    # def soot(self):
-    #     return self.reactor.soot_array;
 
     def run(self):
         self._run_upstream();
