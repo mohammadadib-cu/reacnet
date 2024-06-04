@@ -27,8 +27,9 @@ class FlowReactor(ElementBase):
 
     def run(self):
         self._run_upstream();
-        self._start_message();
+        if self.verbose:
+            self._start_message();
         self._run_callback(**self._call_back_config);
         self._match_with_reactor();
-
-        self._success_message();
+        if self.verbose:
+            self._success_message();

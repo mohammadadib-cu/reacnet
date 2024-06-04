@@ -66,5 +66,6 @@ class Tank(ElementBase):
         self._h_mass_total = self.soot_gas.h_mass_total;
 
     def run(self):
-        self._start_message();
-        self._success_message();
+        if self.verbose:
+            self._start_message();
+            self._success_message();

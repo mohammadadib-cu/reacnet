@@ -15,6 +15,7 @@ class ElementBase:
         self._mdot = 0.0;
         self.name = name; 
         self.outlet = Connection(upstream = self);
+        self.verbose = False;
         super().__init__()
 
 

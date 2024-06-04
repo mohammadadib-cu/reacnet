@@ -30,7 +30,8 @@ class Mixer(ElementBase):
     
     def run(self):
         self._run_upstream();
-        self._start_message();
+        if self.verbose:
+            self._start_message();
 
         mdot_total = 0.0;
         species_mdot = np.zeros((self.soot_gas.n_species,));
@@ -70,8 +71,8 @@ class Mixer(ElementBase):
                 soot_flux += inlet.mdot * inlet.soot;
             
             self.soot = soot_flux / mdot_total;
-
-        self._success_message();
+        if self.verbose:
+            self._success_message();
             
 def check_reactor(inlet: Connection):
     if isinstance(inlet.upstream, FlowReactor):
