@@ -4,10 +4,12 @@ from reacnet.elements import ElementBase, FlowReactor
 from reacnet.connectors import Connection
 
 class Mixer(ElementBase):
-    def __init__(self, soot_gas, name = ""):
+    def __init__(self, soot_gas, name = "", override_temperature = False):
         self.inlets = [];
         self.reactor_inlet = None;
         super().__init__(soot_gas, name);
+        self.override_temperature = override_temperature;
+        self.constant_temperature = 273;
     
 
     @property
@@ -59,7 +61,10 @@ class Mixer(ElementBase):
         self._h_mass_total = h_mass_total / mdot_total;
         self._h_mol_array = h_mol_array_combined / mdot_total;
         
-        self.soot_gas.HPY = self.h_mass_total, self.P, self.Y
+        if self.override_temperature:
+            self.soot_gas.TPY = self.constant_temperature, self.P, self.Y
+        else:
+            self.soot_gas.HPY = self.h_mass_total, self.P, self.Y
         self._T = self.soot_gas.T;
         self._X = self.soot_gas.X;
 
