@@ -77,6 +77,7 @@ class Mixer(ElementBase):
             
             self.soot = soot_flux / mdot_total;
         if self.verbose:
+            print(f"mixer {self.name} mdot is {self.mdot:0.5e}")
             self._success_message();
             
 def check_reactor(inlet: Connection):

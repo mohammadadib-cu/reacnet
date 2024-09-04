@@ -32,4 +32,5 @@ class FlowReactor(ElementBase):
         self._run_callback(**self._call_back_config);
         self._match_with_reactor();
         if self.verbose:
+            print(f"reactor {self.name} mdot is {self.reactor.mdot:0.5e}")
             self._success_message();
